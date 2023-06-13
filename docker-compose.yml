@@ -1,0 +1,231 @@
+version: "3.9"
+
+services:
+  osint:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/osint
+    image: rhacknarok/yggdrasil_osint_image
+    hostname: osint
+    container_name: Yggdrasil_osint
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${OSINT_APP}
+      - seccomp:${OSINT_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${OSINT_NET}
+    runtime: ${OSINT_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${OSINT_RAM}
+    cpus: ${OSINT_CPU}
+
+  discover:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/discover
+    image: rhacknarok/yggdrasil_discover_image
+    hostname: discover
+    container_name: Yggdrasil_discover
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${DISCOVER_APP}
+      - seccomp:${DISCOVER_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${DISCOVER_NET}
+    runtime: ${DISCOVER_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${DISCOVER_RAM}
+    cpus: ${DISCOVER_CPU}
+
+
+  web:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/web
+    image: rhacknarok/yggdrasil_web_image
+    hostname: web
+    container_name: Yggdrasil_web
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${WEB_APP}
+      - seccomp:${WEB_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${WEB_NET}
+    runtime: ${WEB_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${WEB_RAM}
+    cpus: ${WEB_CPU}
+
+  cracking:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/cracking
+    image: rhacknarok/yggdrasil_cracking_image
+    hostname: cracking
+    container_name: Yggdrasil_cracking
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${CRACKING_APP}
+      - seccomp:${CRACKING_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp 
+    network_mode: ${CRACKING_NET}
+    runtime: ${CRACKING_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${CRACKING_RAM}
+    cpus: ${CRACKING_CPU}
+
+  wireless:
+    #privileged: true necessary for use the external network card
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/wireless
+    image: rhacknarok/yggdrasil_wireless_image
+    hostname: wireless
+    container_name: Yggdrasil_wireless
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${WIRELESS_APP}
+      - seccomp:${WIRELESS_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${WIRELESS_NET}
+    #network_mode: "host"
+    runtime: ${WIRELESS_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${WIRELESS_RAM}
+    cpus: ${WIRELESS_CPU}
+
+  exploit:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/exploit
+    image: rhacknarok/yggdrasil_exploit_image
+    hostname: exploit
+    container_name: Yggdrasil_exploit
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${EXPLOIT_APP}
+      - seccomp:${EXPLOIT_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${EXPLOIT_NET}
+    runtime: ${EXPLOIT_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${EXPLOIT_RAM}
+    cpus: ${EXPLOIT_CPU}
+
+  post-exploit:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/post-exploit
+    image: rhacknarok/yggdrasil_post_exploit_image
+    hostname: post-exploit
+    container_name: Yggdrasil_post-exploit
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${POST_EXPLOIT_APP}
+      - seccomp:${POST_EXPLOIT_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${POST_EXPLOIT_NET}
+    runtime: ${POST_EXPLOIT_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${POST_EXPLOIT_RAM}
+    cpus: ${POST_EXPLOIT_CPU}
+
+#SPECIAL
+  forensics:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/forensics
+    image: rhacknarok/yggdrasil_forensics_image
+    hostname: forensics
+    container_name: Yggdrasil_forensics
+    volumes: 
+      - ./Yggdrasil_forensics:/home/kali/Yggdrasil_data_forensics
+      - ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${FORENSICS_APP}
+      - seccomp:${FORENSICS_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${FORENSICS_NET}
+    runtime: ${FORENSICS_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${FORENSICS_RAM}
+    cpus: ${FORENSICS_CPU}
+
+  reporting:
+    build:
+      context: .
+      dockerfile: Yggdrasil_Dockerfiles/reporting
+    image: rhacknarok/yggdrasil_reporting_image
+    hostname: reporting
+    container_name: Yggdrasil_reporting
+    volumes: 
+      - ./Yggdrasil_data/:/home/kali/Yggdrasil_data
+      #- ./scripts/:/home/kali/scripts
+    security_opt:
+      - apparmor:${REPORTING_APP}
+      - seccomp:${REPORTING_SEC}
+    cap_add:
+      - SYS_PTRACE
+    tmpfs:
+      - /tmp
+    network_mode: ${REPORTING_NET}
+    runtime: ${REPORTING_RUN}
+    stdin_open: true
+    tty: true
+    env_file: .env
+    mem_limit: ${REPORTING_RAM}
+    cpus: ${REPORTING_CPU}
