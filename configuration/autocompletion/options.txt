@@ -1,9 +1,0 @@
-cracking
-discover
-exploit
-forensics
-osint
-post-exploit
-reporting
-web
-wireless
