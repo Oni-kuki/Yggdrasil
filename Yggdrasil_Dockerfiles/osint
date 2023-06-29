@@ -1,0 +1,8 @@
+FROM kalilinux/kali-rolling
+LABEL Oni-kuki <oni@disroot.org>
+
+COPY ./scripts /scripts
+RUN chmod +x /scripts/*
+RUN ./scripts/Yggdrasil_osint.sh
+
+CMD ["tail", "-f", "/dev/null"]

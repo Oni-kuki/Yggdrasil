@@ -1,0 +1,110 @@
+#!/bin/bash/
+apt update && apt install -y \
+    afflib-tools \
+    apktool \
+    autopsy \
+    binwalk \
+    bulk-extractor \
+    bytecode-viewer \
+    cabextract \
+    chkrootkit \
+    creddump7 \
+    dc3dd \
+    dcfldd \
+    ddrescue \
+    dumpzilla \
+    ewf-tools \
+    exifprobe \
+    exiv2 \
+    ext3grep \
+    ext4magic \
+    extundelete \
+    fcrackzip \
+    firmware-mod-kit \
+    foremost \
+    forensic-artifacts \
+    forensics-colorize \
+    galleta \
+    gdb \
+    gpart \
+    grokevt \
+    guymager \
+    hashdeep \
+    inetsim \
+    jadx \
+    libhivex-bin \
+    libsmali-java \
+    lime-forensics \
+    lvm2 \
+    lynis \
+    mac-robber \
+    magicrescue \
+    md5deep \
+    mdbtools \
+    memdump \
+    metacam \
+    missidentify \
+    myrescue \
+    nasm \
+    nasty \
+    p7zip-full \
+    parted \
+    pasco \
+    pdf-parser \
+    pdfid \
+    pev \
+    plaso \
+    polenum \
+    pst-utils \
+    python3-capstone \
+    python3-dfdatetime \
+    python3-dfvfs \
+    python3-dfwinreg \
+    python3-distorm3 \
+    radare2 \
+    recoverdm \
+    recoverjpeg \
+    reglookup \
+    regripper \
+    rephrase \
+    rifiuti \
+    rifiuti2 \
+    rkhunter \
+    rsakeyfind \
+    safecopy \
+    samdump2 \
+    scalpel \
+    scrounge-ntfs \
+    sleuthkit \
+    sqlitebrowser \
+    ssdeep \
+    tcpdump \
+    tcpflow \
+    tcpick \
+    tcpreplay \
+    truecrack \
+    undbx \
+    unhide \
+    unrar \
+    unar \
+    upx-ucl \
+    vinetto \
+    wce \
+    winregfs \
+    xmount \
+    xplico \
+    yara \
+    apktool \
+    clang \
+    dex2jar \
+    jadx \
+    metasploit-framework \
+    radare2 \
+#    rizin-cutter
+#    bytecode-viewer
+#    edb-debugger
+#    ollydbg
+#    javasnoop
+#    jd-gui
+#    gparted
+#    wireshark
