@@ -48,8 +48,8 @@ execute_script_with_progress() {
 }
 
 
-chmod o-rwx Yggdrasil -R
-chmod g-rwx Yggdrasil -R
+chmod o-rwx ./Yggdrasil -R
+chmod g-rwx ./Yggdrasil -R
 # Docker-install
 chmod 700 ./install/docker-install.sh
 execute_script_with_progress ./install/docker-install.sh "docker-install"
