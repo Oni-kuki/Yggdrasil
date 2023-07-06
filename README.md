@@ -2,7 +2,7 @@
 New pentesting Framework  
 Link for the documentation: https://onis-private-organization.gitbook.io/yggdrasil/  
   
-## If you want to launch all the services at once, you need at least 50g of available places.
+## If you want to launch all the services at once, you need at least 50g of available.  
 
 ## Context
 Yggdrasil is a tool or a framework for pentesting, allowing to provide a complete environment to conduct a pentest or a ctf.  
