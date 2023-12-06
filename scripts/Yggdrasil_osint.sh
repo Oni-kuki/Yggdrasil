@@ -22,7 +22,8 @@ pip3 install ghunt
 pip3 install gitfive 
 pip3 install h8mail 
 pip3 install instaloader 
-pip3 install maigret 
+pip3 install maigret
+pip3 install nexfil
 
 
 # RelationsFB
@@ -30,9 +31,6 @@ cd /home/kali/ && git clone https://github.com/Eriys/RelationsFB.git && cd Relat
 
 # BlackBird
 cd /home/kali/ && git clone https://github.com/p1ngul1n0/blackbird && cd blackbird && pip3 install -r requirements.txt
-
-# nexfil
-cd /home/kali/ && git clone https://github.com/thewhiteh4t/nexfil.git && cd nexfil && pip3 install -r requirements.txt 
 
 # o365chk
 cd /home/kali/ && git clone https://github.com/nixintel/o365chk && cd o365chk && pip3 install -r requirements.txt
@@ -45,12 +43,6 @@ cd /home/kali/ && git clone https://github.com/jofpin/trape.git && cd trape && p
 
 # kalitorify
 cd /home/kali/ && git clone https://github.com/brainfucksec/kalitorify && apt-get install tor curl -y && cd /home/kali/kalitorify && make install && chmod +x kalitorify.sh
-
-#nexfil config
-cd /home/kali/ 
-echo -e '#!/bin/bash \ncd /home/kali/nexfil/ \npython3 "nexfil.py" "$@"' > nexfil.sh
-chmod +x nexfil.sh
-ln -s /home/kali/nexfil.sh /usr/local/bin/nexfil
 
 #RelationFB config
 echo -e '#!/bin/bash \ncd /home/kali/RelationsFB/ \npython3 "RelationFB.py" "$@"' > RelationFB.sh
